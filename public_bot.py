@@ -4,7 +4,6 @@ from telegram import ReplyKeyboardMarkup
 from telegram.ext import Updater, MessageHandler, Filters
 from telegram.ext import CallbackContext, CommandHandler, ConversationHandler
 from requests import get, post, delete
-from load_image_from_yandex import load_image
 import os
 import random
 
@@ -381,8 +380,7 @@ def search(update, context):
 
 
 def main():
-    updater = Updater(TOKEN, use_context=True,
-                      request_kwargs=REQUEST_KWARGS)  # , request_kwargs=REQUEST_KWARGS
+    updater = Updater(TOKEN, use_context=True)  # , request_kwargs=REQUEST_KWARGS
 
     dp = updater.dispatcher
 
