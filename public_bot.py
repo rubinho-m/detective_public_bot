@@ -12,8 +12,8 @@ if "TOKEN" in os.environ:
 else:
     from config import TOKEN
 
-# api_url = 'http://localhost:5000'
-api_url = 'https://detective-test.herokuapp.com/'
+api_url = 'http://localhost:5000'
+# api_url = 'https://detective-test.herokuapp.com/'
 
 REQUEST_KWARGS = {
     'proxy_url': 'socks4://5.56.133.56:42659'
@@ -113,7 +113,6 @@ def proof(update, context):
                 update.message.chat_id,
                 open(map_file, 'rb'),
                 caption=message)
-            os.remove(map_file)
         elif api == 'map':
             evidence = str(evidence).split('_')
             for x in evidence:
@@ -381,7 +380,7 @@ def search(update, context):
 
 
 def main():
-    updater = Updater(TOKEN, use_context=True)  # , request_kwargs=REQUEST_KWARGS
+    updater = Updater(TOKEN, use_context=True, request_kwargs=REQUEST_KWARGS)  # , request_kwargs=REQUEST_KWARGS
 
     dp = updater.dispatcher
 
